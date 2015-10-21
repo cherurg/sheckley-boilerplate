@@ -1,3 +1,5 @@
-import plot from 'plots';
+import ui from 'ui';
+import React from 'react';
+import Ui from 'ui';
 
-plot('plot');
+React.render(<Ui></Ui>, document.getElementById('plot'));

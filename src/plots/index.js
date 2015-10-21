@@ -1,5 +1,1 @@
-import {Plotter} from 'sheckley';
-
-export default function (id) {
-  new Plotter(id);
-};
+export {example1} from './example1';
