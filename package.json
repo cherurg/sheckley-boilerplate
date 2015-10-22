@@ -33,9 +33,10 @@
     "webpack": "^1.12.2"
   },
   "dependencies": {
-    "react": "^0.13.3",
-    "react-redux": "^3.0.1",
-    "redux": "^3.0.2",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "react-redux": "^4.0.0",
+    "redux": "^3.0.3",
     "sheckley": "^0.2.1"
   }
 }

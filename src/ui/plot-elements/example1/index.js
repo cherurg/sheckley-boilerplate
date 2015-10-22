@@ -2,12 +2,19 @@ import {example1} from 'plots';
 import React, {Component} from 'react';
 
 class Example1Component extends Component {
-  componentDidMount() {
+  static defaultProps = {
+    id: 'plot'
+  };
 
+  componentDidMount() {
+    example1(this.props.id);
   }
 
   render() {
-    return <div>Привет</div>;
+    return (
+      <div id={this.props.id}>
+      </div>
+    );
   }
 }
 
