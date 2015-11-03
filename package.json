@@ -6,7 +6,8 @@
   "scripts": {
     "build": "better-npm-run build",
     "start": "better-npm-run start",
-    "test": "better-npm-run test"
+    "test": "better-npm-run test",
+    "dev": "webpack-dev-server --config webpack/development.config.js"
   },
   "betterScripts": {
     "build": {
