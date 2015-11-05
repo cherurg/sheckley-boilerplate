@@ -1,1 +1,5 @@
-export {default as ActionTypes} from './ActionTypes';
+import * as ButtonActions from './buttonActions';
+
+export {
+  ButtonActions
+};
