@@ -1,7 +1,15 @@
 import React, {Component, PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
 import getId from 'utils/id-generator';
-import {bindButtonAdd, bindButtonRemove, bindButtonDown, bindButtonUp} from 'actions/button';
+import {
+  bindButtonAdd,
+  bindButtonRemove,
+  bindButtonDown,
+  bindButtonUp
+} from 'actions/button';
+import store from 'store';
+
+let subscribe = store.subscribe;
 
 class Button extends Component {
   static propTypes = {
@@ -9,26 +17,12 @@ class Button extends Component {
   };
 
   static defaultProps = {
-    onMouseDown: function () {
-      this.setState({active: true});
-
-      let element = $(findDOMNode(this));
-      if (!element.hasClass('active')) {
-        element.button('toggle');
-        bindButtonDown(this.props.id);
-      }
+    onMouseDown() {
+      bindButtonDown(this.props.id);
     },
 
-    onMouseUp: function () {
-      let element = $(findDOMNode(this));
-
-      setTimeout(() => {
-        this.setState({active: false});
-        if (element.hasClass('active')) {
-          element.button('toggle');
-          bindButtonUp(this.props.id);
-        }
-      }, 1000);
+    onMouseUp() {
+      bindButtonUp(this.props.id);
     }
   };
 
@@ -38,6 +32,15 @@ class Button extends Component {
 
   constructor(props) {
     super(props);
+    subscribe(() => {
+      let previousState = this.state.active;
+      let state = store.getState().button
+        .filter(item => item.id === this.props.id)[0].isDown;
+
+      if (state === previousState) return;
+
+      this.setState({active: state});
+    });
   }
 
   componentWillMount() {
@@ -50,8 +53,9 @@ class Button extends Component {
 
   render() {
     let {onMouseDown, onMouseUp, children} = this.props;
+    let {active} = this.state;
     return (
-      <div className={'btn'}
+      <div className={'btn' + (active ? ' active' : '')}
            onMouseDown={onMouseDown.bind(this)}
            onMouseUp={onMouseUp.bind(this)}>
         {children}
