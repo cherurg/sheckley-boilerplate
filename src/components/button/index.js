@@ -15,6 +15,7 @@ class Button extends Component {
       let element = $(findDOMNode(this));
       if (!element.hasClass('active')) {
         element.button('toggle');
+        bindButtonDown(this.props.id);
       }
     },
 
@@ -25,6 +26,7 @@ class Button extends Component {
         this.setState({active: false});
         if (element.hasClass('active')) {
           element.button('toggle');
+          bindButtonUp(this.props.id);
         }
       }, 1000);
     }
