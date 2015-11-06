@@ -1,5 +1,6 @@
 import {BUTTON_DOWN, BUTTON_UP, BUTTON_ADD, BUTTON_REMOVE} from 'constants/buttonActions';
-import {dispatch} from 'store';
+import store from 'store';
+let dispatch = store.dispatch;
 
 export function buttonDown(id) {
   return {

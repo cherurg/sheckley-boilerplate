@@ -1,37 +1,35 @@
 import {BUTTON_DOWN, BUTTON_UP, BUTTON_ADD, BUTTON_REMOVE} from 'constants/buttonActions';
+import assign from 'object-assign';
 
 export default function button(state = [], action) {
   let itemIndex, s;
 
   switch (action.type) {
     case BUTTON_DOWN:
-      itemIndex = state.map(item => item.id).indexOf(action.id);
-      s = state.slice();
-      s[itemIndex].isDown = true;
-      return s;
-      break;
+      return state.map(item =>
+        item.id === action.id ?
+          assign({}, item, {isDown: true}) :
+          item
+      );
 
     case BUTTON_UP:
-      itemIndex = state.map(item => item.id).indexOf(action.id);
-      s = state.slice();
-      s[itemIndex].isDown = false;
-      return s;
-      break;
+      return state.map(item =>
+        item.id === action.id ?
+          assign({}, item, {isDown: false}) :
+          item
+      );
 
     case BUTTON_REMOVE:
-      let itemToRemove = state
-        .map(item => item.id)
-        .indexOf(action.id);
-      return state.slice(0, itemToRemove)
-        .concat(state.slice(itemToRemove + 1));
-      break;
+      return state.filter(item => item.id !== action.id);
 
     case BUTTON_ADD:
-      return state.slice().push({
-        id: action.id,
-        isDown: false
-      });
-      break;
+      return [
+        ...state,
+        {
+          id: action.id,
+          isDown: false
+        }
+      ];
 
     default:
       return state;
