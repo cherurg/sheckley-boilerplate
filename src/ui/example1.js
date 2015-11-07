@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Plot} from 'components';
-import {example1} from 'components/plots';
+import {example1} from 'plots';
 
 class Example1 extends Component {
   render() {
