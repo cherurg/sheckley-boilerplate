@@ -10,6 +10,7 @@ class ui extends Component {
         <Button id="test-button">
           Кнопочка
         </Button>
+        <Example1/>
       </div>
     );
   }

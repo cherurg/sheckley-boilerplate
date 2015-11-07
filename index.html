@@ -7,8 +7,12 @@
 </head>
 <body>
     <div id="plot"></div>
+    <script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
     <script src="dependencies/jquery.min.js"></script>
     <script src="dependencies/bootstrap/js/bootstrap.min.js"></script>
     <script src="dist/bundle.js"></script>
+    <script>
+        window.overContainer = new OverContainer(OverContainer.SENDER);
+    </script>
 </body>
 </html>
