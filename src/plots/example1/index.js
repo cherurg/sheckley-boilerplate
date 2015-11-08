@@ -8,6 +8,6 @@ export default function (id) {
   s.addFunc(x => getSomething(x));
 
   emitter.on(ACTION, action => {
-    console.log(action);
+
   });
 };

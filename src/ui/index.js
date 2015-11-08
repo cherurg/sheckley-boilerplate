@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Example1 from './example1.js';
 import Example2 from './example2.js';
-import {Button} from 'components'
+import {Button, Checkbox} from 'components'
 
 class ui extends Component {
   render() {
@@ -10,6 +10,9 @@ class ui extends Component {
         <Button id="test-button">
           Кнопочка
         </Button>
+        <Checkbox id="test-checkbox">
+          Чекбоксик
+        </Checkbox>
         <Example1/>
       </div>
     );

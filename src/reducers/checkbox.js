@@ -1,31 +1,36 @@
-import {BUTTON_DOWN, BUTTON_UP, BUTTON_ADD, BUTTON_REMOVE} from 'constants/buttonActions';
+import {
+  CHECKBOX_ENABLE,
+  CHECKBOX_DISABLE,
+  CHECKBOX_ADD,
+  CHECKBOX_REMOVE
+} from 'constants/checkboxActions';
 import assign from 'object-assign';
 
-export default function button(state = [], action) {
+export default function checkbox(state = [], action) {
   switch (action.type) {
-    case BUTTON_DOWN:
+    case CHECKBOX_ENABLE:
       return state.map(item =>
         item.id === action.id ?
-          assign({}, item, {isDown: true}) :
+          assign({}, item, {isChecked: true}) :
           item
       );
 
-    case BUTTON_UP:
+    case CHECKBOX_DISABLE:
       return state.map(item =>
         item.id === action.id ?
-          assign({}, item, {isDown: false}) :
+          assign({}, item, {isChecked: false}) :
           item
       );
 
-    case BUTTON_REMOVE:
+    case CHECKBOX_REMOVE:
       return state.filter(item => item.id !== action.id);
 
-    case BUTTON_ADD:
+    case CHECKBOX_ADD:
       return [
         ...state,
         {
           id: action.id,
-          isDown: false
+          isChecked: false
         }
       ];
 
