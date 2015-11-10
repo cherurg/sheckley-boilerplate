@@ -1,0 +1,6 @@
+export const EDIT_BOX_PLUS = 'EDIT_BOX_PLUS';
+export const EDIT_BOX_MINUS = 'EDIT_BOX_MINUS';
+export const EDIT_BOX_INPUT = 'EDIT_BOX_INPUT';
+export const EDIT_BOX_ADD = 'EDIT_BOX_ADD';
+export const EDIT_BOX_REMOVE = 'EDIT_BOX_REMOVE';
+export const EDIT_BOX_STEP_CHANGE = 'EDIT_BOX_STEP_CHANGE';
