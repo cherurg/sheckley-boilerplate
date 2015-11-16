@@ -38,14 +38,14 @@ export default function editBox(state = [], action) {
       ];
 
     case EDIT_BOX_INPUT:
-      return state(item =>
+      return state.map(item =>
         item.id === action.id ?
           assign({}, item, {value: action.value}) :
           item
       );
 
     case EDIT_BOX_STEP_CHANGE:
-      return state(item =>
+      return state.map(item =>
         item.id === action.id ?
           assign({}, item, {step: action.step}) :
           item
