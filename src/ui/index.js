@@ -1,22 +1,24 @@
 import React, {Component} from 'react';
 import Example1 from './example1.js';
 import Example2 from './example2.js';
-import {Button, Checkbox, EditBox} from 'components'
+import {Button, Checkbox, EditBox, Slider} from 'components'
+import fmt from 'rssi';
 
 class ui extends Component {
   render() {
     return (
       <div>
-        <Button id="test-button">
-          Кнопочка
-        </Button>
-        <Checkbox id="test-checkbox">
-          Чекбоксик
-        </Checkbox>
-        <EditBox id="test-edit-box">
-          Эдитбоксик
-        </EditBox>
-        <Example1/>
+        <Slider
+          min={1}
+          max={100}
+          step={1}
+          start={1}
+          label={fmt('и его значение: #{number}')}
+          id="test-slider"
+        >
+          Слайдерик
+        </Slider>
+
       </div>
     );
   }

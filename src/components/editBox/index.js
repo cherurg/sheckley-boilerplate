@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
-import Button from '../button';
 import {
   bindEditBoxAdd,
   bindEditBoxRemove,
