@@ -68,12 +68,7 @@ class Checkbox extends Component {
   render() {
     let {value} = this.state;
     let {
-      onChange,
-      id,
-      onButtonMouseDown,
-      onButtonMouseUp,
-      onPlus,
-      onMinus
+      onChange
       } = this.props;
 
     return (
