@@ -1,6 +1,8 @@
 import {
   SLIDER_SLIDE,
-  SLIDER_SET
+  SLIDER_SET,
+  SLIDER_ADD,
+  SLIDER_REMOVE
 } from 'constants/sliderActions';
 import store from 'store';
 let dispatch = store.dispatch;
@@ -12,7 +14,7 @@ export function sliderSlide(id, value) {
     value
   };
 }
-export let bindSliderSlide = (id) => dispatch(sliderSlide(id));
+export let bindSliderSlide = (id, value) => dispatch(sliderSlide(id, value));
 
 
 export function sliderSet(id, value) {
@@ -22,4 +24,23 @@ export function sliderSet(id, value) {
     value
   };
 }
-export let bindSliderSet = (id) => dispatch(sliderSet(id));
+export let bindSliderSet = (id, value) => dispatch(sliderSet(id, value));
+
+
+export function sliderAdd(id, props) {
+  return {
+    type: SLIDER_ADD,
+    id,
+    ...props
+  };
+}
+export let bindSliderAdd = (id, props) => dispatch(sliderAdd(id, props));
+
+
+export function sliderRemove(id) {
+  return {
+    type: SLIDER_REMOVE,
+    id
+  };
+}
+export let bindSliderRemove = (id) => dispatch(sliderRemove(id));

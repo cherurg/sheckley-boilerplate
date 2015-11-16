@@ -3,10 +3,12 @@ import {findDOMNode} from 'react-dom';
 import noUiSlider from 'nouislider';
 import {
   bindSliderSet,
-  bindSliderSlide
+  bindSliderSlide,
+  bindSliderAdd,
+  bindSliderRemove
 } from 'actions/slider';
-
 import store from 'store';
+let subscribe = store.subscribe;
 import assign from 'object-assign';
 
 var getFormatted = function (number) {
@@ -29,13 +31,14 @@ var bindSlider = function (slider) {
 
   slider.noUiSlider.on('slide', () => {
     let number = getFormatted(slider.noUiSlider.get());
-    this.setState({
-      number: number
-    });
     bindSliderSlide(id, number);
   });
 
   slider.noUiSlider.on('set', () => {
+    if (this.state.slider.notTrigger) {
+      this.state.slider.notTrigger = false;
+      return;
+    }
     let number = getFormatted(slider.noUiSlider.get());
     bindSliderSet(id, number);
   });
@@ -61,6 +64,20 @@ class Slider extends Component {
         get: () => 0
       }
     };
+
+    subscribe(() => {
+      let previousState = this.state.value;
+      let state = store.getState().slider
+        .filter(item => item.id === this.props.id)[0].value;
+
+      if (state === previousState) return;
+
+      this.setState({number: state});
+      if (!!this.state.slider.set) {
+        this.state.slider.notTrigger = true;
+        this.state.slider.set(state);
+      }
+    });
   }
 
   componentDidMount() {
@@ -69,8 +86,17 @@ class Slider extends Component {
       .querySelector('.slider__element'));
 
     this.setState({
-      number: getFormatted(slider.get())
+      number: getFormatted(slider.get()),
+      slider
     });
+  }
+
+  componentWillMount() {
+    bindSliderAdd(this.props.id, this.props);
+  }
+
+  componentWillUnmount() {
+    bindSliderRemove(this.props.id);
   }
 
   render() {
