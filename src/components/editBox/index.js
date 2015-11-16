@@ -82,18 +82,4 @@ class Checkbox extends Component {
   }
 }
 
-/*      <form className="navbar-form pull-left">
- <Button
- onClick={() => onMinus()}
- id={id + '-button-minus'}
- >-</Button>
-
- <input type="number" className="span2" value={value}/>
-
- <Button
- onClick={() => onPlus()}
- id={id + '-button-plus'}
- >+</Button>
- </form>*/
-
 export default Checkbox;
