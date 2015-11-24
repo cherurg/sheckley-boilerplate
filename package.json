@@ -34,6 +34,7 @@
     "webpack": "^1.12.2"
   },
   "dependencies": {
+    "lodash.isequal": "^3.0.4",
     "nouislider": "git://github.com/leongersen/noUiSlider",
     "object-assign": "^4.0.1",
     "react": "^0.14.0",
