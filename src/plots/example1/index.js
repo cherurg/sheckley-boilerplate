@@ -22,22 +22,38 @@ let addCircle = function () {
   circle.down = plotter.addFunc((x) => -Math.sqrt(vectorLength ** 2 - x ** 2), { left: -vectorLength, right: vectorLength });
 };
 
-export default function (id) {
-  plotter = new Plotter(id);
-  vector = plotter.addLine(0, 0, 0, vectorLength, lineConfig);
-  addCircle();
-};
-
 let counter = 0;
 let angle = counter * Math.PI / 6;
+let isCheckbox= false;
+let point;
+
+let addPoint = function () {
+  point = plotter.addPoint(vectorLength * Math.sin(angle), vectorLength * Math.cos(angle), { size: 5 });
+};
+
+let removePoint = function () {
+  plotter.remove(point);
+  point = null;
+};
+
 let addVector = function () {
   vector = plotter.addLine(0, 0, vectorLength * Math.sin(angle), vectorLength * Math.cos(angle), lineConfig);
+  if (isCheckbox) {
+    addPoint();
+  }
+};
+
+let removeVector = function () {
+  plotter.remove(vector);
+  if (point) {
+    removePoint();
+  }
 };
 
 let buttonsHandler = function (action) {
   switch (action.id) {
     case 'test-button':
-      plotter.remove(vector);
+      removeVector();
       counter++;
       angle = counter * Math.PI / 6;
       addVector();
@@ -48,7 +64,7 @@ let buttonsHandler = function (action) {
 let slidersHandler = function (action) {
   switch (action.id) {
     case 'test-slider':
-      plotter.remove(vector);
+      removeVector();
       removeCircle();
 
       vectorLength = action.value;
@@ -59,7 +75,27 @@ let slidersHandler = function (action) {
   }
 };
 
+let checkBoxesHandler = function (action, isEnabled) {
+  switch (action.id) {
+    case 'test-checkbox':
+      isCheckbox = isEnabled;
+      if (isEnabled) {
+        addPoint();
+      } else {
+        removePoint();
+      }
+      break;
+  }
+};
+
 defaultHandlers({
   buttonsHandler,
-  slidersHandler
+  slidersHandler,
+  checkBoxesHandler
 });
+
+export default function (id) {
+  plotter = new Plotter(id);
+  vector = plotter.addLine(0, 0, 0, vectorLength, lineConfig);
+  addCircle();
+};
