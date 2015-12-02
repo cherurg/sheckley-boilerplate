@@ -10,10 +10,10 @@ class ui extends Component {
       <div>
         <Slider
           min={1}
-          max={100}
-          step={1}
+          max={2}
+          step={0.01}
           start={1}
-          label={fmt('и его значение: #{number}')}
+          label={fmt('Длина вектора: #{number}')}
           id="test-slider"
         >
           Слайдерик
