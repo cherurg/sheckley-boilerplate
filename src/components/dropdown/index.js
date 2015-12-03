@@ -74,12 +74,21 @@ class DropDown extends Component {
           {activeItem}
           <b className="caret"/>
         </a>
-        <ul className="dropdown-menu" role="menu" aria-labelledby="drop4">
+        <ul className="dropdown-menu" role="menu">
           {
             list
               .map((el, i) => {
                 return [
-                  <li key={el} role="presentation">
+                  <li key={el}
+                      role="presentation"
+                      onMouseOver={() => {
+                        bindDropDownMouseOver(id, i);
+                      }}
+                      onClick={() => {
+                        bindDropDownSelect(id, i);
+                        bindDropDownCollapse(id);
+                      }}
+                  >
                     <a className={i === mouseOver ? "hovered" : ""}
                        role="menuitem"
                        href="#">
