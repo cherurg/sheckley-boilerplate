@@ -8,6 +8,14 @@ class ui extends Component {
   render() {
     return (
       <div>
+        <DropDown
+          id="test-dropDown"
+          list={[
+          "элементик",
+          "другой элементик",
+          "элементище"
+        ]}
+        />
         <Slider
           min={1}
           max={2}
