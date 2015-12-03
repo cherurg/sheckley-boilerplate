@@ -42,6 +42,14 @@ class DropDown extends Component {
 
   componentDidMount() {
     /*рендеринг катеха*/
+/*    let katexFormulas = findDOMNode(this)
+      .querySelectorAll(".katex");
+
+    for (let propName in katexFormulas) {
+      if (!katexFormulas.hasOwnProperty(propName)) continue;
+      let formula = katexFormulas[propName];
+      katex.render(formula)
+    }*/
   }
 
   componentWillMount() {
