@@ -7,7 +7,8 @@
     "build": "better-npm-run build",
     "start": "better-npm-run start",
     "test": "better-npm-run test",
-    "dev": "webpack-dev-server --config webpack/development.config.js"
+    "dev": "webpack-dev-server --config webpack/development.config.js",
+    "dos2unix": "find . -type f -exec dos2unix {} \;"
   },
   "betterScripts": {
     "build": {
