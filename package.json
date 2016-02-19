@@ -8,7 +8,7 @@
     "start": "better-npm-run start",
     "test": "better-npm-run test",
     "dev": "webpack-dev-server --config webpack/development.config.js",
-    "dos2unix": "find . -type f -exec dos2unix {} \;"
+    "dos2unix": "find . -type f -exec dos2unix {} \\;"
   },
   "betterScripts": {
     "build": {
@@ -46,6 +46,6 @@
     "redux-logger": "^2.0.4",
     "redux-thunk": "^1.0.0",
     "rssi": "0.0.7",
-    "sheckley": "^0.2.1"
+    "sheckley": "0.3.0-hack"
   }
 }
