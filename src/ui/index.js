@@ -15,6 +15,7 @@ class ui extends Component {
           "другой элементик",
           "элементище"
         ]}
+          selected={1}
         />
         <Slider
           min={1}

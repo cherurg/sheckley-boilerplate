@@ -18,7 +18,8 @@ class DropDown extends Component {
 
   static propTypes = {
     id: PropTypes.string.isRequired,
-    list: PropTypes.arrayOf(PropTypes.string).isRequired
+    list: PropTypes.arrayOf(PropTypes.string).isRequired,
+    selected: PropTypes.number
   };
 
   state = {selected: 0};
