@@ -8,7 +8,9 @@ const finalCreateStore = compose(
   applyMiddleware(
     socketMiddleware,
     ee,
-    createLogger()
+    createLogger({
+      collapsed: true
+    })
   )
 )(createStore);
 
