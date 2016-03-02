@@ -88,10 +88,19 @@ let checkBoxesHandler = function (action, isEnabled) {
   }
 };
 
+let dropDownsHandler = function (action) {
+  switch (action.id) {
+    case 'test-dropDown':
+      console.log(action);
+      break;
+  }
+};
+
 defaultHandlers({
   buttonsHandler,
   slidersHandler,
-  checkBoxesHandler
+  checkBoxesHandler,
+  dropDownsHandler
 });
 
 export default function (id) {

@@ -2,6 +2,7 @@ import {ACTION, emitter} from 'store/eventer';
 import {BUTTON_DOWN, BUTTON_UP} from 'constants/buttonActions';
 import {SLIDER_SET, SLIDER_SLIDE} from 'constants/sliderActions';
 import {CHECKBOX_DISABLE, CHECKBOX_ENABLE} from 'constants/checkboxActions';
+import {DROP_DOWN_SELECT} from 'constants/dropDownActions';
 
 let wrapHandler = (handler) => {
   return handler || function () {
@@ -31,6 +32,10 @@ export default function (handlers) {
 
       case CHECKBOX_ENABLE:
         checkBoxesHandler(action, true);
+        break;
+
+      case DROP_DOWN_SELECT:
+        dropDownsHandler(action);
         break;
     }
   });
