@@ -13,7 +13,7 @@ import assign from 'object-assign';
 
 let subscribe = store.subscribe;
 
-class Checkbox extends Component {
+class EditBox extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     defaultValue: PropTypes.number,
@@ -40,8 +40,8 @@ class Checkbox extends Component {
   };
 
   state = {
-    value: this.props.defaultValue || 0,
-    step: this.props.step || 1
+    value: 0,
+    step: 1
   };
 
   constructor(props) {
@@ -59,7 +59,7 @@ class Checkbox extends Component {
   }
 
   componentWillMount() {
-    bindEditBoxAdd(this.props.id);
+    bindEditBoxAdd(this.props.id, this.props.defaultValue, this.props.step);
   }
 
   componentWillUnmount() {
@@ -67,6 +67,7 @@ class Checkbox extends Component {
   }
 
   render() {
+    console.log(this.state);
     let {value} = this.state;
     let {
       onChange
@@ -83,4 +84,4 @@ class Checkbox extends Component {
   }
 }
 
-export default Checkbox;
+export default EditBox;

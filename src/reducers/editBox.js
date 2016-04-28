@@ -32,8 +32,8 @@ export default function editBox(state = [], action) {
         ...state,
         {
           id: action.id,
-          step: 1,
-          value: 0
+          step: action.step || 1,
+          value: action.value || 0
         }
       ];
 

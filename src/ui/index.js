@@ -27,6 +27,8 @@ class ui extends Component {
         >
           Слайдерик
         </Slider>
+        <EditBox id="text-editbox" defaultValue={2}>
+        </EditBox>
         <br/>
         <Button id="test-button">Кнопочка</Button>
         <span>На графике нарисована константа f(x) = 7. Если нажать на кнопку, то это уменьшит значение константы на 1.</span><br/>

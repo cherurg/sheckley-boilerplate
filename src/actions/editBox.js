@@ -47,13 +47,15 @@ export function editBoxStepChange(id, step) {
 export let bindEditBoxStepChange = (id, newStep) => dispatch(editBoxStepChange(id, newStep));
 
 
-export function addEditBox(id) {
+export function addEditBox(id, value, step) {
   return {
     type: EDIT_BOX_ADD,
-    id
+    id,
+    value,
+    step
   };
 }
-export let bindEditBoxAdd = (id) => dispatch(addEditBox(id));
+export let bindEditBoxAdd = (id, value, step) => dispatch(addEditBox(id, value, step));
 
 
 export function editBoxRemove() {
