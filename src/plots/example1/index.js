@@ -1,4 +1,3 @@
-import {Plotter} from 'sheckley';
 import getSomething from './get-something.js';
 import defaultHandlers from 'utils/defaultHandlers';
 

@@ -5,7 +5,7 @@ let store = configureStore();
 
 setTimeout(() => {
   if (getType() === 'receiver') {
-    getSocket().on('action', (action) => {
+    getSocket().on('plot-action', (action) => {
       store.dispatch(action);
     });
   }

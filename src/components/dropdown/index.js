@@ -88,7 +88,8 @@ class DropDown extends Component {
             list
               .map((el, i) => {
                 return [
-                  <li key={el}
+                  <li className={i === mouseOver ? "active" : ""}
+                      key={el}
                       role="presentation"
                       onMouseOver={() => {
                         bindDropDownMouseOver(id, i);
@@ -98,8 +99,7 @@ class DropDown extends Component {
                         bindDropDownCollapse(id);
                       }}
                   >
-                    <a className={i === mouseOver ? "hovered" : ""}
-                       role="menuitem"
+                    <a role="menuitem"
                        href="#">
                       {el}
                     </a>

@@ -54,7 +54,7 @@ class Button extends Component {
     let {onMouseDown, onMouseUp, children} = this.props;
     let {active} = this.state;
     return (
-      <div className={'btn' + (active ? ' active' : '')}
+      <div className={'btn btn-default' + (active ? ' active' : '')}
            onMouseDown={onMouseDown.bind(this)}
            onMouseUp={onMouseUp.bind(this)}>
         {children}
