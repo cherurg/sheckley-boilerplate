@@ -15,7 +15,9 @@ let subscribe = store.subscribe;
 
 class Checkbox extends Component {
   static propTypes = {
-    id: PropTypes.string.isRequired
+    id: PropTypes.string.isRequired,
+    defaultValue: PropTypes.number,
+    step: PropTypes.number
   };
 
   static defaultProps = {
@@ -38,8 +40,8 @@ class Checkbox extends Component {
   };
 
   state = {
-    value: 0,
-    step: 1
+    value: this.props.defaultValue || 0,
+    step: this.props.step || 1
   };
 
   constructor(props) {
